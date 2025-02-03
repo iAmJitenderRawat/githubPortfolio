@@ -10,7 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { Sidebar } from "./Sidebar";
-import PdfModal from "./Modal";
+import { ViewIcon } from "@chakra-ui/icons";
+import resume from "../assests/pdf/JitenderResume.pdf";
 
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -49,7 +50,9 @@ export const Navbar = () => {
           </Tab>
         </TabList>
       </Tabs>
-      <PdfModal />
+      <a href={resume} target={"_blank"}>
+        <Button leftIcon={<ViewIcon/>}>Resume</Button>
+      </a>
       <Button bg={"Background"} onClick={toggleColorMode}>
         {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
       </Button>
